@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -27,6 +28,8 @@ public class Participant{
     private String email;
     private String phone;
     private LocalDate dateOfBirth;
+    @Column(nullable = false, updatable = false)
+    @CreatedDate
     private LocalDate dateOfRegistration;
     @Enumerated(EnumType.STRING)
     private Gender gender;
