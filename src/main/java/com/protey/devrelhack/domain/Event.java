@@ -1,8 +1,6 @@
 package com.protey.devrelhack.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,18 +9,27 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "events")
 public class Event {
-    private @Id @GeneratedValue long id;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private  long id;
     private String title;
     private String description;
     private List<Interest> interests;
     private LocalDateTime start;
     private LocalDateTime end;
+    @ManyToMany
+    @JoinTable(
+            name = "participants_events",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "participant_id")
+            )
     private List<Participant> registeredParticipant;
     private List<Participant> involvedParticipant;
 }

@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 
 
 @Getter
@@ -16,6 +17,7 @@ import java.util.HashSet;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "participants")
 public class Participant{
     private @Id @GeneratedValue long id;
     private String login;
@@ -36,4 +38,6 @@ public class Participant{
     private String about;
     private Profession profession;
     private HashSet<Interest> interests;
+    @ManyToMany(mappedBy = "participants")
+    private List<Event> events;
 }
