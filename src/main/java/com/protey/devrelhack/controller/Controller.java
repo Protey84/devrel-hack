@@ -1,8 +1,6 @@
 package com.protey.devrelhack.controller;
 
 import lombok.RequiredArgsConstructor;
-import com.protey.devrelhack.domain.JwtAuthentication;
-import com.protey.devrelhack.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;

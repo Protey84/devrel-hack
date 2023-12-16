@@ -16,7 +16,7 @@ import java.util.HashSet;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Participant extends User{
+public class Participant{
     private @Id @GeneratedValue long id;
     private String login;
     private String password;
