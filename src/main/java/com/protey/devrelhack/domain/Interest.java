@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Profession {
+public class Interest {
     private @Id
     @GeneratedValue long id;
     private String name;

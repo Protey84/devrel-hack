@@ -1,5 +1,8 @@
 package com.protey.devrelhack.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,11 +15,12 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Event {
-    private long idEvent;
+    private @Id @GeneratedValue long id;
     private String title;
     private String description;
-    private List<Interes> interests;
+    private List<Interest> interests;
     private LocalDateTime start;
     private LocalDateTime end;
     private List<Participant> registeredParticipant;
