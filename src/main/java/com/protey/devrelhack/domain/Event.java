@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -21,7 +22,13 @@ public class Event {
     private  long id;
     private String title;
     private String description;
-    private List<Interest> interests;
+    @ManyToMany
+    @JoinTable(
+            name = "event_interests",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "interest_id")
+    )
+    private Set<Interest> interests;
     private LocalDateTime start;
     private LocalDateTime end;
     @ManyToMany
@@ -30,6 +37,5 @@ public class Event {
             joinColumns = @JoinColumn(name = "event_id"),
             inverseJoinColumns = @JoinColumn(name = "participant_id")
             )
-    private List<Participant> registeredParticipant;
-    private List<Participant> involvedParticipant;
+    private List<Participant> participants;
 }

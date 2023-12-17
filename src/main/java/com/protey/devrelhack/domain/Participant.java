@@ -9,8 +9,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -20,7 +20,7 @@ import java.util.List;
 @Entity
 @Table(name = "participants")
 public class Participant{
-    private @Id @GeneratedValue long id;
+    private @Id @GeneratedValue(strategy = GenerationType.AUTO) long id;
     private String login;
     private String password;
     private String firstName;
@@ -40,7 +40,12 @@ public class Participant{
     private String loginGitHub;
     private String about;
     private Profession profession;
-    private HashSet<Interest> interests;
+    @ManyToMany
+    @JoinTable(
+            name = "participant_interests",
+            joinColumns = @JoinColumn(name = "participant_id"),
+            inverseJoinColumns = @JoinColumn(name = "interest_id"))
+    private Set<Interest> interests;
     @ManyToMany(mappedBy = "participants")
     private List<Event> events;
 }
