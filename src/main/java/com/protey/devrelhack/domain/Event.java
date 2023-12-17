@@ -29,8 +29,8 @@ public class Event {
             inverseJoinColumns = @JoinColumn(name = "interest_id")
     )
     private Set<Interest> interests;
-    private LocalDateTime start;
-    private LocalDateTime end;
+    private LocalDateTime startEvent;
+    private LocalDateTime endEvent;
     @ManyToMany
     @JoinTable(
             name = "participants_events",

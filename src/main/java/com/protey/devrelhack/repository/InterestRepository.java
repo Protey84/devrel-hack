@@ -1,8 +1,9 @@
 package com.protey.devrelhack.repository;
 
+import com.protey.devrelhack.domain.Interest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface InterestRepository extends JpaRepository<InterestRepository, Long> {
+public interface InterestRepository extends JpaRepository<Interest, Long> {
 }

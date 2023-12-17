@@ -19,7 +19,6 @@ public class Profession {
     @GeneratedValue(strategy = GenerationType.AUTO) long id;
     @Column(name = "name")
     private String name;
-    @OneToMany
-    @JoinColumn(name = "participant_id")
+    @OneToMany(mappedBy = "profession")
     private Set<Participant> participants;
 }

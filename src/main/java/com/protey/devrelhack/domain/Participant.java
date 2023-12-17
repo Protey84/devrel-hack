@@ -39,6 +39,7 @@ public class Participant{
     private String loginTelegram;
     private String loginGitHub;
     private String about;
+    @ManyToOne
     private Profession profession;
     @ManyToMany
     @JoinTable(
